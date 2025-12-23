@@ -1,5 +1,4 @@
 # Trabalho de Inteligencia Artificial
-**Aluno:** Cauan Halison Arantes de Oliveira - 554117
 
 ## Máquina utilizada nos testes 
 * **CPU:** intel core i5-12450h
