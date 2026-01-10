@@ -408,7 +408,7 @@ def executar_com_metricas(nome_algoritmo, funcao_busca, *args):
 
 # --- Bloco Principal ---
 
-actions, initial_state, goal_state = process_strips('src/instancias.txt')
+actions, initial_state, goal_state = process_strips('Mundo dos blocos\src\instancias.txt')
 actions_mapping_int, int_mapping_actions = mapping(actions, initial_state, goal_state)
 
 actions_int = encode_actions(actions, actions_mapping_int)
