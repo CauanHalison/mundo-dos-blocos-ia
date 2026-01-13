@@ -59,7 +59,7 @@ def bidirectional_search(actions, initial_state, goal_state):
                         if possible_states[s]['preconditions'].intersection(possible_states[c]['posconditions']):
                             inconsistent_states.add(c)
 
-            for s in sorted_states:
+            for s in possible_states:
                 if s not in inconsistent_states:
                     queue_backward.append(s)
                     visited_states_backward[s] = True
