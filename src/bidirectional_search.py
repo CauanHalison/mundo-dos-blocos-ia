@@ -51,12 +51,10 @@ def bidirectional_search(actions, initial_state, goal_state):
                 if new_state_backward != None:
                     possible_states[new_state_backward] = action
 
-            sorted_states = sorted(list(possible_states.keys()), key=lambda k: str(sorted(list(k))))
-
             inconsistent_states = set()
 
-            for s in sorted_states:
-                for c in sorted_states:
+            for s in possible_states:
+                for c in possible_states:
                     if s != c:
                         if possible_states[s]['preconditions'].intersection(possible_states[c]['posconditions']):
                             inconsistent_states.add(c)
