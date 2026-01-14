@@ -372,17 +372,13 @@ def check_base(state, goal_state): #lógica para verificar e determinar blocos q
 def executar_com_metricas(nome_algoritmo, funcao_busca, *args):
     print(f"\n{'='*10} Executando: {nome_algoritmo} {'='*10}")
     
-    # 1. Inicia o monitoramento de memória e tempo
     process = psutil.Process(os.getpid())
     inicio_tempo = time.time()
     
-    # 2. Executa o algoritmo
     resultado, visited_states = funcao_busca(*args)
     
-    # 3. Para o monitoramento
     fim_tempo = time.time()
     
-    # 4. Cálculos e Relatório
     tempo_total = fim_tempo - inicio_tempo
     pico_memoria = process.memory_info().peak_wset
     
@@ -393,10 +389,8 @@ def executar_com_metricas(nome_algoritmo, funcao_busca, *args):
     
     if resultado:
         path = []
-        # Tratamento especial para o IDDFS que retorna uma tupla (caminho, nivel)
         if isinstance(resultado, tuple):
             path = resultado[0]
-            # print(f"Nível IDDFS atingido: {resultado[1]}") # opcional
         else:
             path = resultado
 
@@ -405,8 +399,6 @@ def executar_com_metricas(nome_algoritmo, funcao_busca, *args):
             print(f'{i}: {s}')
     else:
         print("\nNenhuma solução encontrada.")
-
-# --- Bloco Principal ---
 
 actions, initial_state, goal_state = process_strips('Mundo dos blocos\src\instancias.txt')
 actions_mapping_int, int_mapping_actions = mapping(actions, initial_state, goal_state)
